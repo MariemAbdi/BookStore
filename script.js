@@ -1,21 +1,38 @@
 let books=[{}]
 
-let form = document.getElementById("form")
+let addBook = document.getElementById("addBook")
+let upBook = document.getElementById("updateBook")
+
 let title = document.getElementById("booktitle")
 let author = document.getElementById("bookauthor")
 let price = document.getElementById("bookprice")
-let add = document.getElementById("add")
 
-// event launched whenever the submit button in the form (in modal) is clicked
-form.addEventListener("submit", (e)=>{
+let titleup = document.getElementById("booktitleup")
+let authorup = document.getElementById("bookauthorup")
+let priceup = document.getElementById("bookpriceup")
+
+let update=false
+var selectedBook= null
+// event launched whenever the submit button in the addbook form (in modal) is clicked
+addBook.addEventListener("submit", (e)=>{
     e.preventDefault();
+    update=false
     formValidation()
-
 })
+
+// event launched whenever the submit button in the updatebook form (in modal) is clicked
+upBook.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    update=true
+    formValidation()
+})
+
 
 // form validation => all the forms are filled
 let formValidation = () =>{
-   if (title.value === "") {
+
+    if(update==false)
+    {if (title.value === "") {
         document.getElementById('titleerror').innerHTML = "Title can't be empty"
     }
     else if (author.value === "") {
@@ -33,7 +50,30 @@ let formValidation = () =>{
         document.getElementById('priceerror').innerHTML = ""
         console.log("success")
         AddBook()
-        }
+        }}
+    
+
+    else{
+        if (titleup.value === "") {
+        document.getElementById('titleerrorup').innerHTML = "Title can't be empty"
+    }
+    else if (authorup.value === "") {
+        document.getElementById('titleerrorup').innerHTML = ""
+        document.getElementById('authorerrorup').innerHTML = "Author can't be empty"
+    }
+    else if (priceup.value === "") {
+        document.getElementById('titleerrorup').innerHTML = ""
+        document.getElementById('authorerrorup').innerHTML = ""
+        document.getElementById('priceerrorup').innerHTML = "Price can't be empty"
+    }
+    else {
+        document.getElementById('titleerrorup').innerHTML = ""
+        document.getElementById('authorerrorup').innerHTML = ""
+        document.getElementById('priceerrorup').innerHTML = ""
+        console.log("success")
+        updateBook()
+    }
+     }
 }   
 
 //to add a book to the list of books
@@ -65,7 +105,7 @@ books.map((x, y) => {
     <td>${x.title}</td>
     <td>${x.author}</td>
     <td>${x.price}</td>
-    <td><i onClick ="updateBook(this)" class="fa-solid fa-pen-to-square text-warning" data-bs-toggle="modal" data-bs-target="#form"></i></td>
+    <td><i onClick ="editBook(this)" class="fa-solid fa-pen-to-square text-warning" data-bs-toggle="modal" data-bs-target="#updateBook"></i></td>
     <td><i onClick ="deleteBook(this)" class="fa-sharp fa-solid fa-trash text-danger"></i></td></tr></tbody>
     `)
     })
@@ -102,18 +142,39 @@ let deleteBook = (e) => {
 }
 
 //editing a book
-let updateBook = (e) => {
-    
+let editBook = (e) => {
     //we save the row's data in an object
-    let selectedBook = e.parentElement.parentElement
-    
-    //setting the data in the fields
-    title.value = selectedBook.children[1].innerHTML
-    author.value = selectedBook.children[2].innerHTML
-    price.value = selectedBook.children[3].innerHTML
+    selectedBook = e.parentElement.parentElement
+        
+    //setting the data in the fields in modal
+    titleup.value = selectedBook.children[1].innerHTML
+    authorup.value = selectedBook.children[2].innerHTML
+    priceup.value = selectedBook.children[3].innerHTML
 
-    //we remove the existing row
-    deleteBook(e)
+}
+
+let updateBook = () => {
+
+   //update data in table
+    selectedBook.cells[0].innerHTML = selectedBook.children[0].innerHTML
+    selectedBook.cells[1].innerHTML = titleup.value
+    selectedBook.cells[2].innerHTML = authorup.value
+    selectedBook.cells[3].innerHTML = priceup.value
+
+
+     //Find index of specific object using findIndex method.    
+    objIndex = books.findIndex((obj => obj.id == selectedBook.children[0].innerHTML));
+
+    //Update object
+    books[objIndex].title = titleup.value
+    books[objIndex].author = authorup.value
+    books[objIndex].price = priceup.value
+
+    //update it locally
+    localStorage.setItem("books", JSON.stringify(books));
+    console.log(books)
+
+   
 }
 
 // To fill the data in the table initially from the browser's local storage
