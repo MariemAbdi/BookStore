@@ -1,7 +1,6 @@
 let books=[{}]
 
 let form = document.getElementById("form")
-let id = document.getElementById("bookid")
 let title = document.getElementById("booktitle")
 let author = document.getElementById("bookauthor")
 let price = document.getElementById("bookprice")
@@ -16,26 +15,19 @@ form.addEventListener("submit", (e)=>{
 
 // form validation => all the forms are filled
 let formValidation = () =>{
-    if (id.value === "") {
-        document.getElementById('iderror').innerHTML = "ID can't be empty"
-    }
-    else if (title.value === "") {
-        document.getElementById('iderror').innerHTML = ""
+   if (title.value === "") {
         document.getElementById('titleerror').innerHTML = "Title can't be empty"
     }
     else if (author.value === "") {
-        document.getElementById('iderror').innerHTML = ""
         document.getElementById('titleerror').innerHTML = ""
         document.getElementById('authorerror').innerHTML = "Author can't be empty"
     }
     else if (price.value === "") {
-        document.getElementById('iderror').innerHTML = ""
         document.getElementById('titleerror').innerHTML = ""
         document.getElementById('authorerror').innerHTML = ""
         document.getElementById('priceerror').innerHTML = "Price can't be empty"
     }
     else {
-        document.getElementById('iderror').innerHTML = ""
         document.getElementById('titleerror').innerHTML = ""
         document.getElementById('authorerror').innerHTML = ""
         document.getElementById('priceerror').innerHTML = ""
@@ -46,8 +38,13 @@ let formValidation = () =>{
 
 //to add a book to the list of books
 let AddBook = () =>{
-books.push({
-    id:Number(id.value),
+
+    var val = localStorage.getItem('books')
+    var object= JSON.parse(val)
+    var count = JSON.parse(val).length
+
+    books.push({
+    id: count==0? count+1 : object[count-1].id+1,
     title: title.value,
     author: author.value,
     price: Number(price.value),
@@ -55,8 +52,8 @@ books.push({
 
     localStorage.setItem("books", JSON.stringify(books));
 
-console.log(books)
-createBook()
+    console.log(books)
+    createBook()
 }
 
 //to display a book in the table of books
@@ -77,7 +74,6 @@ books.map((x, y) => {
 
 //to reset the form after submission
 let resetForm = () => {
-id.value = ""
 title.value = ""
 author.value = ""
 price.value = ""
@@ -85,6 +81,9 @@ price.value = ""
 
 //deleting a book
 let deleteBook = (e) => {
+
+    if (confirm("Delete Book ?") == true) {
+
     //remove the parent of the parent of the parameter
     //the direct parent would be the table cell
     e.parentElement.parentElement.remove()
@@ -92,7 +91,14 @@ let deleteBook = (e) => {
     books.splice(e.parentElement.parentElement.id, 1);
     //deleting it from the local storage too
     localStorage.setItem("books", JSON.stringify(books));
-    console.log(books);
+
+    } else {
+        console.log("Delete canceled!")
+      }
+
+
+      console.log(books);
+
 }
 
 //editing a book
@@ -102,7 +108,6 @@ let updateBook = (e) => {
     let selectedBook = e.parentElement.parentElement
     
     //setting the data in the fields
-    id.value = selectedBook.children[0].innerHTML
     title.value = selectedBook.children[1].innerHTML
     author.value = selectedBook.children[2].innerHTML
     price.value = selectedBook.children[3].innerHTML
