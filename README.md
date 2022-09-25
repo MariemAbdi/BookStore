@@ -11,8 +11,11 @@ A simple bookstore application using HTML, CSS, BootStrap and JavaScript (CRUD)
   <img  src="https://user-images.githubusercontent.com/100727442/192139142-3d0c7854-f956-4646-b18d-7ed6a4261a94.png">
 </p>
 
-![image](https://user-images.githubusercontent.com/100727442/192139142-3d0c7854-f956-4646-b18d-7ed6a4261a94.png)
-![image](https://user-images.githubusercontent.com/100727442/192139149-e8041bdf-372f-4774-8be5-975142e122e3.png)
+<p align="center">
+  <img  src="https://user-images.githubusercontent.com/100727442/192139149-e8041bdf-372f-4774-8be5-975142e122e3.png">
+</p>
+
+
 <br><h2>Editing Books</h2>
 ![image](https://user-images.githubusercontent.com/100727442/192139177-dd409f71-e70a-406b-9966-04d6fa63a634.png)
 ![image](https://user-images.githubusercontent.com/100727442/192139194-f6347554-7500-4bab-957a-4b1d1c9def01.png)
