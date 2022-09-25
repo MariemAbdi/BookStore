@@ -13,6 +13,9 @@ A simple bookstore application using HTML, CSS, BootStrap and JavaScript (CRUD)
   <img  src="https://user-images.githubusercontent.com/100727442/192139816-1a67cf2a-d943-42cf-ba41-14a5da407fa0.png">
 </p>
 
+<br><h2>Locally Stored Data</h2>
+![image](https://user-images.githubusercontent.com/100727442/192139885-77d0b94c-1545-4aa2-88ff-4c879d2ef8ea.png)
+
 <br><h2>Editing Books</h2>
 ![image](https://user-images.githubusercontent.com/100727442/192139177-dd409f71-e70a-406b-9966-04d6fa63a634.png)
 <p align="center">
@@ -33,8 +36,3 @@ A simple bookstore application using HTML, CSS, BootStrap and JavaScript (CRUD)
 <p align="center">
 <img src="https://user-images.githubusercontent.com/100727442/192139254-2d3db962-8c83-4e2d-bb01-a8aeed0df2fa.png">
 </p>
-
-<br><h2>Locally Stored Data</h2>
-![image](https://user-images.githubusercontent.com/100727442/192139885-77d0b94c-1545-4aa2-88ff-4c879d2ef8ea.png)
-
-
