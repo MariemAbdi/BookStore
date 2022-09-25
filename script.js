@@ -15,14 +15,14 @@ let update=false
 var selectedBook= null
 // event launched whenever the submit button in the addbook form (in modal) is clicked
 addBook.addEventListener("submit", (e)=>{
-    e.preventDefault();
+    e.preventDefault()
     update=false
     formValidation()
 })
 
 // event launched whenever the submit button in the updatebook form (in modal) is clicked
 upBook.addEventListener("submit", (e)=>{
-    e.preventDefault();
+    e.preventDefault()
     update=true
     formValidation()
 })
@@ -88,9 +88,9 @@ let AddBook = () =>{
     title: title.value,
     author: author.value,
     price: Number(price.value),
-    });
+    })
 
-    localStorage.setItem("books", JSON.stringify(books));
+    localStorage.setItem("books", JSON.stringify(books))
 
     console.log(books)
     createBook()
@@ -98,7 +98,7 @@ let AddBook = () =>{
 
 //to display a book in the table of books
 let createBook = () =>{
-document.getElementById('mybooks').innerHTML= '<tbody class="table-group-divider">';
+document.getElementById('mybooks').innerHTML= '<tbody class="table-group-divider">'
 books.map((x, y) => {
     return (document.getElementById('mybooks').innerHTML += `
     <tr id=${y}><td class="text-primary">${x.id}</td>
@@ -128,16 +128,16 @@ let deleteBook = (e) => {
     //the direct parent would be the table cell
     e.parentElement.parentElement.remove()
 
-    books.splice(e.parentElement.parentElement.id, 1);
+    books.splice(e.parentElement.parentElement.id, 1)
     //deleting it from the local storage too
-    localStorage.setItem("books", JSON.stringify(books));
+    localStorage.setItem("books", JSON.stringify(books))
 
     } else {
         console.log("Delete canceled!")
       }
 
 
-      console.log(books);
+      console.log(books)
 
 }
 
@@ -163,7 +163,7 @@ let updateBook = () => {
 
 
      //Find index of specific object using findIndex method.    
-    objIndex = books.findIndex((obj => obj.id == selectedBook.children[0].innerHTML));
+    objIndex = books.findIndex((obj => obj.id == selectedBook.children[0].innerHTML))
 
     //Update object
     books[objIndex].title = titleup.value
@@ -171,7 +171,7 @@ let updateBook = () => {
     books[objIndex].price = priceup.value
 
     //update it locally
-    localStorage.setItem("books", JSON.stringify(books));
+    localStorage.setItem("books", JSON.stringify(books))
     console.log(books)
 
    
