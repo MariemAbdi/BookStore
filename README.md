@@ -8,7 +8,7 @@ A simple bookstore application using HTML, CSS, BootStrap and JavaScript (CRUD)
 
 
 <p align="center">
-  <img  src="![image](https://user-images.githubusercontent.com/100727442/192139142-3d0c7854-f956-4646-b18d-7ed6a4261a94.png)">
+  <img  src="https://user-images.githubusercontent.com/100727442/192139142-3d0c7854-f956-4646-b18d-7ed6a4261a94.png">
 </p>
 
 ![image](https://user-images.githubusercontent.com/100727442/192139142-3d0c7854-f956-4646-b18d-7ed6a4261a94.png)
