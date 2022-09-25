@@ -1,7 +1,7 @@
 # BookStore
 A simple bookstore application using HTML, CSS, BootStrap and JavaScript (CRUD)
 <br>With locally stored data
-<center>
+<div style="text-align:center">
 <br><h2>Initial State</h2>
 ![image](https://user-images.githubusercontent.com/100727442/192139092-e5efed0f-d5dd-4d8c-9949-415faf901b05.png)
 <br><h2>Adding Books</h2>
@@ -18,4 +18,4 @@ A simple bookstore application using HTML, CSS, BootStrap and JavaScript (CRUD)
 ![image](https://user-images.githubusercontent.com/100727442/192139249-4026d107-9550-49ed-9bd2-6754ce97bd58.png)
 ![image](https://user-images.githubusercontent.com/100727442/192139254-2d3db962-8c83-4e2d-bb01-a8aeed0df2fa.png)
 
-</center>
+</div>
