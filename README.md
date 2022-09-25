@@ -14,7 +14,9 @@ A simple bookstore application using HTML, CSS, BootStrap and JavaScript (CRUD)
 </p>
 
 <br><h2>Locally Stored Data</h2>
-![image](https://user-images.githubusercontent.com/100727442/192139885-77d0b94c-1545-4aa2-88ff-4c879d2ef8ea.png)
+<p align="center">
+  <img  src="https://user-images.githubusercontent.com/100727442/192139885-77d0b94c-1545-4aa2-88ff-4c879d2ef8ea.png">
+</p>
 
 <br><h2>Editing Books</h2>
 ![image](https://user-images.githubusercontent.com/100727442/192139177-dd409f71-e70a-406b-9966-04d6fa63a634.png)
